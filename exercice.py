@@ -19,7 +19,8 @@ def get_word_length_histogram(text):
 	return histogram
 
 def format_histogram(histogram):
-	return "\n".join([f"{x} {'*'*histogram[x]}" for x in range(1,len(histogram))])
+	len_num, lenght_histogram = lambda num : len(str(num)), len(histogram)
+	return "\n".join([f"{' '*(len_num(lenght_histogram)-len_num(x))}{x} {'*'*histogram[x]}" for x in range(1,lenght_histogram)])
 
 def format_horizontal_histogram(histogram: list) -> str:
 	histogram.pop(0)
